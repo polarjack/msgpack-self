@@ -121,11 +121,11 @@ class Encoder:
             length = len(target)
 
             if length <= 0xFF:
-                self.result.write(bytes([0xC4, length]))
+                self.result.write(b'\xc4' + struct.pack('>B', length))
             elif length <= 0xFFFF:
-                self.result.write(bytes([0xC5, length]))
+                self.result.write(b'\xc5' + struct.pack('>H', length))
             elif length <= 0xFFFFFFFF:
-                self.result.write(bytes([0xC6, length]))
+                self.result.write(b'\xc6' + struct.pack('>I', length))
 
             self.result.write(target)
             return

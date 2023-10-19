@@ -172,12 +172,15 @@ class Decoder:
         # bin parsing
         if s == b'\xc4':  # bin 8
             length = self._fetch_byte(length=1)
+            length = struct.unpack('>B', length)[0]
             return bytes, self._fetch_byte(length=length)
         elif s == b'\xc5':  # bin 16
             length = self._fetch_byte(length=2)
+            length = struct.unpack('>H', length)[0]
             return bytes, self._fetch_byte(length=length)
         elif s == b'\xc6':  # bin 32
             length = self._fetch_byte(length=4)
+            length = struct.unpack('>I', length)[0]
             return bytes, self._fetch_byte(length=length)
 
         raise Exception('not implemented')

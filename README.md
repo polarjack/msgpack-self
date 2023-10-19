@@ -10,6 +10,7 @@ Msgpack Official [Spec](https://github.com/msgpack/msgpack/blob/master/spec.md)
     - [int Family](#int-family)
     - [float Family](#float-family)
     - [str Family](#str-family)
+    - [bin Family](#bin-family)
     - [list Family](#list-family)
     - [map Family](#map-family)
 
@@ -91,6 +92,13 @@ Parsing str family include [test_str_family](./tests/test_basic.py#L64)
 - str 8
 - str 16
 - str 32
+
+### bin Family
+
+Prasing bin family include [test_bin_family](./tests/test_bin.py#L18)
+- bytes 8
+- bytes 16
+- bytes 32
 
 ### list Family
 
